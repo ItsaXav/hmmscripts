@@ -9,8 +9,8 @@ ssh $2@atlas7 "cd ~/hpctmp/Data/$1 && touch transferdone.txt"
 
 # copy the general info to Hippocampus
 targetDir="/volume1/Hippocampus/Data/picasso/$1"
-ssh -p 8398 hippocampus@cortex.nus.edu.sg mkdir -p $targetDir
-scp -P 8398 $1/{*.edf,*.txt,*.xlsx,*.mat} hippocampus@cortex.nus.edu.sg:$targetDir &&
+ssh -hippocampus@cortex.nus.edu.sg mkdir -p $targetDir
+scp  $1/{*.edf,*.txt,*.xlsx,*.mat} hippocampus@cortex.nus.edu.sg:$targetDir &&
 ssh $2@atlas7 "cd ~/hpctmp/Data/$1 && touch transferredGeneralInfo.txt"
 
 # run Process Level
